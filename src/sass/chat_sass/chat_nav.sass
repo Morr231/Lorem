@@ -1,0 +1,43 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap')
+
+@mixin nav_text()
+    text-transform: uppercase
+    font-size: 16px
+    font-weight: bold
+    color: #707C97
+
+.ChatNav
+    background-color: white
+    width: 15vw
+    .profile
+        &_img
+            display: block
+            margin: 0 auto
+            margin-top: 8vh
+            width: 96px
+            height: 96px
+            border-radius: 100%
+        &_name
+            text-align: center
+            margin-top: 10px
+            font-size: 18px
+            color: #0D1C2E
+    .chat_navigation
+        padding: 0
+        list-style: none
+        margin-top: 7vh
+        margin-bottom: 0
+        &_elem
+            margin-top: 3.2vh
+            @include nav_text()
+            &:nth-child(1)
+                margin-top: 0
+            &_icon
+                margin-left: 38px
+                margin-right: 18px
+    .logout
+        margin-top: 28vh
+        padding: 0
+        border: none
+        background-color: white
+        @include nav_text()

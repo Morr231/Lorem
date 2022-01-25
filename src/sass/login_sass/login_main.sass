@@ -1,0 +1,181 @@
+@mixin login-main_input()
+    padding-top: 10px
+    padding-bottom: 10px
+    padding-left: 25px
+
+    width: 100%
+    border: 1px solid #4285F4
+    border-radius: 9px
+    &::placeholder
+        font-weight: 300
+        font-size: 14px
+
+        color: #808080
+
+.LoginMain
+    padding: 44px
+
+    height: 90vh
+    width: 35vw
+
+    background: #FFFFFF
+    box-shadow: 0px 4px 35px rgba(0, 0, 0, 0.08)
+    border-radius: 40px
+
+    position: absolute
+    top: 5vh
+    right: 8vw
+    .login-main_upper
+
+        display: flex
+        justify-content: space-between
+
+        .login-main_header
+
+            .login-main_welcome
+                font-weight: normal
+                font-size: 21px
+                color: #000000
+                .website_name
+                    font-weight: 600
+                    font-size: 21px
+                    text-transform: uppercase
+                    color: #0089ED
+            .login-main_sign_text
+                font-weight: 500
+                font-size: 55px
+
+                color: #000000
+
+        .login-main_sign_up
+            .login-main_no_account
+                font-weight: normal
+                font-size: 13px
+
+                color: #8D8D8D
+
+            .login-main_sign_up_link
+                font-weight: normal
+                font-size: 13px
+
+                color: #0089ED
+
+                text-decoration: none
+
+    .login-main_sign_in_other
+        margin-top: 30px
+        display: flex
+        justify-content: space-between
+
+        .login-main_sign_in_google
+
+            display: flex
+            justify-content: center
+            align-items: center
+
+            width: 65%
+            height: 55px
+
+            background: #E9F1FF
+            border-radius: 9px
+
+            .google_img
+                width: 26px
+                height: 26px
+
+                margin-right: 26px
+
+            .sign_in_google
+
+                font-weight: normal
+                font-size: 16px
+
+                color: #4285F4
+
+        .login-main_sign_in_facebook
+            width: 60px
+            height: 55px
+
+            background: #F7F7F7
+            border-radius: 9px
+
+            display: flex
+            justify-content: center
+            align-items: center
+
+        .login-main_sign_in_apple
+            width: 60px
+            height: 55px
+
+            background: #F7F7F7
+            border-radius: 9px
+
+            display: flex
+            justify-content: center
+            align-items: center
+
+    .login-main_sign_in
+
+        margin-top: 51px
+
+        .login-main_username_enter
+
+            margin-bottom: 37px
+
+            &_description
+                font-weight: normal
+                font-size: 16px
+
+                color: #000000
+
+                margin-bottom: 13px
+            &_form
+
+                &_input
+
+                    @include login-main_input()
+
+        .login-main_password_enter
+
+            &_description
+                font-weight: normal
+                font-size: 16px
+
+                color: #000000
+
+                margin-bottom: 13px
+            &_form
+
+                &_input
+
+                    @include login-main_input()
+
+        .login-main_forgot_password
+            display: block
+            font-weight: normal
+            font-size: 13px
+            line-height: 19px
+            text-decoration: none
+
+            color: #4285F4
+            text-align: right
+
+            margin-top: 12px
+
+        .login-main_sign_in_button
+
+            margin-top: 35px
+
+            height: 40px
+            width: 100%
+
+            background: #0089ED
+            box-shadow: 0px 4px 19px rgba(119, 147, 65, 0.3)
+
+            border: none
+            border-radius: 10px
+
+            font-weight: 500
+            font-size: 16px
+
+            color: #FFFFFF
