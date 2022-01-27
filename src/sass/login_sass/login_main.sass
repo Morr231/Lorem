@@ -114,13 +114,11 @@
             justify-content: center
             align-items: center
 
-    .login-main_sign_in
+    .login-main_sign
 
-        margin-top: 51px
+        margin-top: 30px
 
-        .login-main_username_enter
-
-            margin-bottom: 37px
+        .login-main_enter_form
 
             &_description
                 font-weight: normal
@@ -129,26 +127,20 @@
                 color: #000000
 
                 margin-bottom: 13px
-            &_form
+            &_input
+                margin-bottom: 25px
+                @include login-main_input()
 
-                &_input
+                &:nth-last-child(2)
+                    margin-bottom: 0
 
-                    @include login-main_input()
+            .small_form_container
+                display: flex
+                justify-content: space-between
 
-        .login-main_password_enter
-
-            &_description
-                font-weight: normal
-                font-size: 16px
-
-                color: #000000
-
-                margin-bottom: 13px
-            &_form
-
-                &_input
-
-                    @include login-main_input()
+                &_item
+                    margin-right: 19px
+                    min-width: 35%
 
         .login-main_forgot_password
             display: block
@@ -162,7 +154,7 @@
 
             margin-top: 12px
 
-        .login-main_sign_in_button
+        .login-main_sign_button
 
             margin-top: 35px
 

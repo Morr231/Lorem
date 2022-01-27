@@ -7,6 +7,29 @@ import facebook_img from "../../img/login_page/facebook.png";
 import apple_img from "../../img/login_page/apple.png";
 
 const LoginMain = ({ sign, setSign }) => {
+    const handleLogin = (event) => {
+        event.preventDefault();
+
+        const user = {
+            username: event.target.credential.value,
+            password: event.target.password.value,
+        };
+
+        addUserHandler(user);
+    };
+
+    async function addUserHandler(user) {
+        const response = await fetch("", {
+            method: "POST",
+            body: JSON.stringify(user),
+            headers: {
+                "Content-Type": "application/json",
+            },
+        });
+        const data = await response.json();
+        console.log(data);
+    }
+
     return (
         <div className="LoginMain">
             <div className="login-main_upper">
@@ -80,98 +103,143 @@ const LoginMain = ({ sign, setSign }) => {
                         </div>
                     </div>
 
-                    <div className="login-main_sign_in">
-                        <div className="login-main_username_enter">
-                            <div className="login-main_username_enter_description">
+                    <div className="login-main_sign">
+                        <form
+                            className="login-main_enter_form"
+                            onSubmit={(e) => handleLogin(e)}
+                        >
+                            <label
+                                htmlFor="credential"
+                                className="login-main_enter_form_description"
+                            >
                                 Enter your username or email address
-                            </div>
-                            <form className="login-main_username_enter_form">
-                                <input
-                                    type="text"
-                                    className="login-main_username_enter_form_input"
-                                    placeholder="Username or email address"
-                                />
-                            </form>
-                        </div>
-                        <div className="login-main_password_enter">
-                            <div className="login-main_password_enter_description">
+                            </label>
+                            <input
+                                type="text"
+                                className="login-main_enter_form_input"
+                                placeholder="Username or email address"
+                                name="credential"
+                            />
+
+                            <label
+                                htmlFor="password"
+                                className="login-main_enter_form_description"
+                            >
                                 Enter your Password
-                            </div>
-                            <form className="login-main_password_enter_form">
-                                <input
-                                    type="text"
-                                    className="login-main_password_enter_form_input"
-                                    placeholder="Password"
-                                />
-                            </form>
-                        </div>
+                            </label>
+                            <input
+                                type="text"
+                                className="login-main_enter_form_input"
+                                placeholder="Password"
+                                name="password"
+                            />
+                            <input
+                                type="submit"
+                                className="login-main_sign_button"
+                            />
+                        </form>
+
                         <a href="" className="login-main_forgot_password">
                             Forgot Password
                         </a>
-                        <button className="login-main_sign_in_button">
-                            Sign in
-                        </button>
                     </div>
                 </section>
             )}
 
             {sign == true && (
                 <section>
-                    <div className="login-main_sign_in">
-                        <div className="login-main_username_enter">
-                            <div className="login-main_username_enter_description">
-                                Enter your username or email address
-                            </div>
-                            <form className="login-main_username_enter_form">
-                                <input
-                                    type="text"
-                                    className="login-main_username_enter_form_input"
-                                    placeholder="Username or email address"
-                                />
-                            </form>
-                        </div>
+                    <div className="login-main_sign">
+                        <form
+                            className="login-main_enter_form"
+                            // onSubmit={(e) => handleLogin(e)}
+                        >
+                            {/* email */}
 
-                        <div className="login-main_username_enter">
-                            <div className="login-main_username_enter_description">
-                                Enter your username or email address
-                            </div>
-                            <form className="login-main_username_enter_form">
-                                <input
-                                    type="text"
-                                    className="login-main_username_enter_form_input"
-                                    placeholder="Username or email address"
-                                />
-                            </form>
-                        </div>
+                            <label
+                                htmlFor="email"
+                                className="login-main_enter_form_description"
+                            >
+                                Enter your email address
+                            </label>
+                            <input
+                                type="text"
+                                className="login-main_enter_form_input"
+                                placeholder="Email address"
+                                name="email"
+                            />
 
-                        <div className="login-main_username_enter">
-                            <div className="login-main_username_enter_description">
-                                Enter your username or email address
-                            </div>
-                            <form className="login-main_username_enter_form">
-                                <input
-                                    type="text"
-                                    className="login-main_username_enter_form_input"
-                                    placeholder="Username or email address"
-                                />
-                            </form>
-                        </div>
+                            {/* username */}
 
-                        <div className="login-main_password_enter">
-                            <div className="login-main_password_enter_description">
+                            <label
+                                htmlFor="username"
+                                className="login-main_enter_form_description"
+                            >
+                                Enter your username
+                            </label>
+                            <input
+                                type="text"
+                                className="login-main_enter_form_input"
+                                placeholder="Username"
+                                name="username"
+                            />
+
+                            <div className="small_form_container">
+                                {/* name */}
+
+                                <div className="small_form_container_item">
+                                    <label
+                                        htmlFor="name"
+                                        className="login-main_enter_form_description"
+                                    >
+                                        Enter your name
+                                    </label>
+                                    <input
+                                        type="text"
+                                        className="login-main_enter_form_input"
+                                        placeholder="Name"
+                                        name="name"
+                                    />
+                                </div>
+                                {/* surname */}
+                                <div className="small_form_container_name_item">
+                                    <label
+                                        htmlFor="surname"
+                                        className="login-main_enter_form_description"
+                                    >
+                                        Enter your surname
+                                    </label>
+                                    <input
+                                        type="text"
+                                        className="login-main_enter_form_input
+                                    width: 40%"
+                                        placeholder="Surname"
+                                        name="surname"
+                                    />
+                                </div>
+                            </div>
+
+                            {/* password */}
+
+                            <label
+                                htmlFor="password"
+                                className="login-main_enter_form_description"
+                            >
                                 Enter your Password
-                            </div>
-                            <form className="login-main_password_enter_form">
-                                <input
-                                    type="text"
-                                    className="login-main_password_enter_form_input"
-                                    placeholder="Password"
-                                />
-                            </form>
-                        </div>
-                        <button className="login-main_sign_in_button">
-                            Sign Up
-                        </button>
+                            </label>
+                            <input
+                                type="text"
+                                className="login-main_enter_form_input"
+                                placeholder="Password"
+                                name="password"
+                            />
+
+                            {/* submit */}
+
+                            <input
+                                type="submit"
+                                className="login-main_sign_button"
+                            />
+                        </form>
                     </div>
                 </section>
             )}
